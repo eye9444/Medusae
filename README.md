@@ -16,9 +16,9 @@ A terminal assistant and visual workspace for exploring unfamiliar GitHub reposi
 
 ## Demo
 
-[![Medusae running in the terminal and browser](docs/media/demo-preview.gif)](https://github.com/eye9444/Medusae/releases/download/v0.1.0/medusae-demo.mp4)
+[![Watch the Medusae demo](docs/media/terminal.png)](https://eye9444.github.io/Medusae/demo.html)
 
-[Watch the 62-second demo](https://github.com/eye9444/Medusae/releases/download/v0.1.0/medusae-demo.mp4). The animated preview combines 15 seconds of excerpts from the recording. Both play at the recorded speed.
+[Watch the original recording](https://eye9444.github.io/Medusae/demo.html) in your browser. The video is unedited, with its original resolution, frame rate and audio.
 
 <details>
 <summary>Screenshots from the demo</summary>

@@ -13,4 +13,4 @@ Target: 45–90 seconds, 1920×1080 if available, MP4. Use a readable terminal f
 
 Use an already indexed small repository to avoid spending the demo cloning. If you cut out a model wait, label that cut; do not imply accelerated footage is real-time. A silent demo is fine. Save the original recording outside the repository and pass its path to the assistant.
 
-The [README demo](../README.md#demo) uses the project owner's recording from 29 September 2026. A short animated preview links to the trimmed video hosted on the v0.1.0 release. The original recording stays outside Git history. See [media notes](media/README.md) for the edits.
+The [README demo](../README.md#demo) links to the project owner's original recording from 29 September 2026 in a browser player. The video is stored unchanged in `docs/media/medusae-demo.mp4`. See [media notes](media/README.md).
