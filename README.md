@@ -8,10 +8,7 @@
 
 A terminal assistant and visual workspace for exploring unfamiliar GitHub repositories.
 
-[![Checks](https://github.com/eye9444/Medusae/actions/workflows/ci.yml/badge.svg)](https://github.com/eye9444/Medusae/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/eye9444/Medusae?include_prereleases&color=81c7a3&label=preview)](https://github.com/eye9444/Medusae/releases)
-![Node.js](https://img.shields.io/badge/Node.js-22.13%2B-81c7a3?logo=nodedotjs&logoColor=white)
-![Runs locally](https://img.shields.io/badge/workspace-local-243a30)
+[![Checks](https://github.com/eye9444/Medusae/actions/workflows/ci.yml/badge.svg)](https://github.com/eye9444/Medusae/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/eye9444/Medusae?include_prereleases&color=81c7a3&label=preview)](https://github.com/eye9444/Medusae/releases) ![Node.js](https://img.shields.io/badge/Node.js-22.13%2B-81c7a3?logo=nodedotjs&logoColor=white) ![Runs locally](https://img.shields.io/badge/workspace-local-243a30)
 
 [Get started](#get-started) · [Explore the features](#one-repository-three-ways-in) · [Models & setup](docs/USAGE.md#models-and-keys) · [MCP](docs/USAGE.md#cli-and-mcp) · [Release notes](https://github.com/eye9444/Medusae/releases)
 
