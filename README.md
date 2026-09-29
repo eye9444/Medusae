@@ -16,7 +16,7 @@ A terminal assistant and visual workspace for exploring unfamiliar GitHub reposi
 
 ## Demo
 
-[![Watch the Medusae demo](docs/media/terminal.png)](https://eye9444.github.io/Medusae/demo.html)
+[![Watch the Medusae demo](docs/media/terminal-fullscreen.png)](https://eye9444.github.io/Medusae/demo.html)
 
 [Watch the demo](https://eye9444.github.io/Medusae/demo.html).
 
@@ -25,15 +25,15 @@ A terminal assistant and visual workspace for exploring unfamiliar GitHub reposi
 
 The terminal home screen, with the Medusa portrait and falling characters.
 
-![Medusae terminal home screen](docs/media/terminal.png)
+![Medusae terminal home screen](docs/media/terminal-fullscreen.png)
 
 The knowledge graph for agent-browser, with the CLI entry point selected and its connections visible.
 
-![Knowledge graph with the CLI entry point selected](docs/media/knowledge-graph.png)
+![Knowledge graph with the CLI entry point selected](docs/media/knowledge-graph-fullscreen.png)
 
 Indexed source opens over the graph in a movable, resizable window.
 
-![Floating source window showing cli/src/main.rs](docs/media/source-window.png)
+![Floating source window showing cli/src/main.rs](docs/media/source-window-fullscreen.png)
 
 </details>
 
