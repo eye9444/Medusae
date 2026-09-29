@@ -1,0 +1,20 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.cache/
+reports/
+*.log
+.next/
+.medusae/
+artifacts/
+
+# Local presentation and development records
+Miscellaneous/
+IMPLEMENTATION_PLAN.md
+IMPLEMENTATION_STATUS.md
+# Credential files, including overridden local storage directories
+credentials.enc
+credentials.key
+*.pem
+*.key
