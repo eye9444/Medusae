@@ -18,7 +18,7 @@ A terminal assistant and visual workspace for exploring unfamiliar GitHub reposi
 
 [![Watch the Medusae demo](docs/media/terminal.png)](https://eye9444.github.io/Medusae/demo.html)
 
-[Watch the original recording](https://eye9444.github.io/Medusae/demo.html) in your browser. The video is unedited, with its original resolution, frame rate and audio.
+[Watch the demo](https://eye9444.github.io/Medusae/demo.html).
 
 <details>
 <summary>Screenshots from the demo</summary>
