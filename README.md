@@ -10,9 +10,32 @@ A terminal assistant and visual workspace for exploring unfamiliar GitHub reposi
 
 [![Checks](https://github.com/eye9444/Medusae/actions/workflows/ci.yml/badge.svg)](https://github.com/eye9444/Medusae/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/eye9444/Medusae?include_prereleases&color=81c7a3&label=preview)](https://github.com/eye9444/Medusae/releases) ![Node.js](https://img.shields.io/badge/Node.js-22.13%2B-81c7a3?logo=nodedotjs&logoColor=white) ![Runs locally](https://img.shields.io/badge/workspace-local-243a30)
 
-[Get started](#get-started) · [Features](#features) · [Models & setup](docs/USAGE.md#models-and-keys) · [MCP](docs/USAGE.md#cli-and-mcp) · [Release notes](https://github.com/eye9444/Medusae/releases)
+[Demo](#demo) · [Get started](#get-started) · [Features](#features) · [Models & setup](docs/USAGE.md#models-and-keys) · [MCP](docs/USAGE.md#cli-and-mcp) · [Release notes](https://github.com/eye9444/Medusae/releases)
 
 </div>
+
+## Demo
+
+[![Medusae running in the terminal and browser](docs/media/demo-preview.gif)](https://github.com/eye9444/Medusae/releases/download/v0.1.0/medusae-demo.mp4)
+
+[Watch the 62-second demo](https://github.com/eye9444/Medusae/releases/download/v0.1.0/medusae-demo.mp4). The animated preview combines 15 seconds of excerpts from the recording. Both play at the recorded speed.
+
+<details>
+<summary>Screenshots from the demo</summary>
+
+The terminal home screen, with the Medusa portrait and falling characters.
+
+![Medusae terminal home screen](docs/media/terminal.png)
+
+The knowledge graph for agent-browser, with the CLI entry point selected and its connections visible.
+
+![Knowledge graph with the CLI entry point selected](docs/media/knowledge-graph.png)
+
+Indexed source opens over the graph in a movable, resizable window.
+
+![Floating source window showing cli/src/main.rs](docs/media/source-window.png)
+
+</details>
 
 ## About
 
