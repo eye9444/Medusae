@@ -1,14 +1,70 @@
-<p align="center"><img src="public/brand/medusae-sculpture-v1.png" width="120" alt="Medusae" /></p>
+<div align="center">
 
-# Medusae
+<img src="public/brand/medusae-sculpture-v1.png" width="170" alt="Medusae sculpture logo" />
 
-**Follow the threads.** Explore a public GitHub repository through a terminal assistant, an interactive 3D knowledge graph, and a source-linked architecture map.
+# M E D U S A E
 
-Medusae pins repositories to a commit, indexes source locally, and uses your chosen model to explain the code. The model supplies structured answers and maps; the application controls rendering and interaction.
+### Follow the threads. Understand the code beneath.
 
-This is an early release. Model reliability varies, repository coverage is bounded, and inferred graph relationships are not a complete runtime call graph.
+A terminal assistant and visual workspace for exploring unfamiliar GitHub repositories.
 
-## Start
+[![Checks](https://github.com/eye9444/Medusae/actions/workflows/ci.yml/badge.svg)](https://github.com/eye9444/Medusae/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/eye9444/Medusae?include_prereleases&color=81c7a3&label=preview)](https://github.com/eye9444/Medusae/releases)
+![Node.js](https://img.shields.io/badge/Node.js-22.13%2B-81c7a3?logo=nodedotjs&logoColor=white)
+![Runs locally](https://img.shields.io/badge/workspace-local-243a30)
+
+[Get started](#get-started) · [Explore the features](#one-repository-three-ways-in) · [Models & setup](docs/USAGE.md#models-and-keys) · [MCP](docs/USAGE.md#cli-and-mcp) · [Release notes](https://github.com/eye9444/Medusae/releases)
+
+</div>
+
+---
+
+## From “where do I start?” to “here’s how it works.”
+
+Opening an unfamiliar repository often means chasing imports, switching between files, and guessing where a feature lives. Medusae brings those threads together: ask a question in the terminal, explore the project visually, and open the source behind an answer.
+
+Your workspace stays local. Repositories are pinned to a commit, conversations are saved, and the same context follows you between the terminal and browser. Bring your own cloud provider or run a model through Ollama.
+
+## One repository, three ways in
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 01 · Ask
+
+An animated terminal home, editable prompts, model completion, progress indicators, and persistent conversation history. Ask about implementation—or ask what an unfamiliar concept means.
+
+</td>
+<td width="33%" valign="top">
+
+### 02 · Explore
+
+Orbit a colourful 3D knowledge graph or switch to grouped architecture cards. Select a component to inspect its responsibilities and follow its relationships.
+
+</td>
+<td width="33%" valign="top">
+
+### 03 · Read
+
+Double-click a node to open its indexed source in a floating window. Move it, resize it, and keep exploring the graph alongside the code.
+
+</td>
+</tr>
+</table>
+
+### Small details that make exploration easier
+
+| Feature | What it gives you |
+| --- | --- |
+| **Connected conversations** | Follow-ups retain previous answers; browser chat can minimize or expand and picks up messages from the selected TUI session. |
+| **Separate model choices** | Use one model for Q&A and another for map generation. Save defaults, or switch temporarily with `/model`. |
+| **Source references** | Repository claims link to validated excerpts from the pinned snapshot. Inferred map relationships remain distinct. |
+| **Local key management** | Masked entry, encrypted storage, visible file locations, and individual or complete deletion from Settings. |
+| **Reusable repository snapshots** | Multiple chats can share indexed repository data. Deleting the last chat cleans up its repository data. |
+| **MCP access** | Other assistants can call `research_repo` for a compact answer with commit-pinned citations. |
+
+## Get started
 
 Requires **Node.js 22.13 or newer** and **Git**. Node.js 24 LTS is recommended. A configured model provider is needed for AI answers and generated maps.
 
@@ -27,104 +83,51 @@ npm start
 
 Keep Medusae running while using the browser. The explorer runs on a local loopback address with an available port. After updating the app, run `npm ci` and `npm run build`, then restart it.
 
-## What it does
 
-- **Terminal chat:** prompt history, editing, command completion, progress indicators, output scrolling, and model selection.
-- **3D knowledge graph:** coloured nodes, orbit/zoom, selection, and source inspection. Project-membership spokes are navigation links, not code dependencies.
-- **Architecture view:** subsystem groups, source-file drill-down, and highlighted relationships.
-- **Source viewer:** double-click a node to open its first available indexed source in a movable, resizable window.
-- **Browser conversation:** saved answers and follow-ups, citation links, minimize/maximize controls, and synchronization with the selected TUI chat.
-- **General explanations:** ask what a concept means without needing to know its implementation. Repository-specific claims use validated source references; general explanations use model knowledge.
-- **Local sessions:** separate conversations and commit-pinned maps, cached answers, and deletion controls.
-- **MCP:** a stdio `research_repo` tool for other assistants.
+## How it works
 
-## Models and keys
+```mermaid
+flowchart LR
+    A[Public GitHub repository] --> B[Commit-pinned snapshot]
+    B --> C[Local source index]
+    C --> D[Question + retrieved excerpts]
+    C --> E[Map generation]
+    D --> F[Answer + validated citations]
+    E --> G[Structured components + relationships]
+    F --> H[Terminal / browser / MCP]
+    G --> I[3D graph / architecture view]
+```
 
-Supported provider adapters include Gemini, OpenRouter, NVIDIA NIM, local Ollama, Ollama Cloud, and configurable OpenAI-compatible endpoints. Model availability, free tiers, quotas, and costs depend on your provider and account. Medusae does not supply credits or guarantee free inference.
+**Models explain the source; Medusae renders the interface.** The model returns structured data rather than executable HTML. The renderer owns the graph layout, colours, interactions, and source windows.
 
-OpenRouter defaults to `openrouter/free` when configured. Requests to that route retry up to five times after the initial attempt and do not fall back to Gemini. Mapping defaults to Gemini independently of chat. Use the Settings model pickers to override either default with a model available to your account.
+## Choose your model
 
-For Ollama, run its server and install a local model first, then select it in Settings or enter `/model ollama <model-id>`. Cloud models served through Ollama require its sign-in and account access. A local Ollama server defaults to `http://127.0.0.1:11434/v1`; override with `OLLAMA_BASE_URL`.
+**Gemini · OpenRouter · NVIDIA NIM · Ollama · Ollama Cloud · compatible endpoints**
 
-### Encrypted local storage
+OpenRouter's free router is supported for chat; Gemini is the initial mapping default. Both are configurable. Local Ollama models are supported too. Provider availability, quotas, pricing, and answer quality vary—Medusae does not supply inference credits.
 
-In **Settings → K**, choose a provider and press Enter for masked key entry. **L** displays file locations, **Delete** removes one saved key, and **X** deletes the entire store after confirmation.
+[Provider setup and encrypted key storage →](docs/USAGE.md#models-and-keys)
 
-Default files:
+## Built with
 
-- `~/.config/medusae/credentials.enc`: AES-256-GCM encrypted keys.
-- `~/.config/medusae/credentials.key`: local unlock key for automatic access.
-
-The directory uses owner-only permissions (700), and files use mode 600. **Anyone who can read both files can decrypt the keys.** This protects against casual plaintext exposure, not compromise of your user account. Deleting saved keys does not revoke them at the provider or unset environment variables.
-
-`XDG_CONFIG_HOME` is respected. `MEDUSAE_CREDENTIALS_DIR` overrides the directory. Keys are used by the backend and are not sent to the browser.
-
-### Environment configuration
-
-Environment variables are optional and override saved keys:
-
-| Provider | Key | Optional configuration |
-| --- | --- | --- |
-| Gemini | `GEMINI_API_KEY` | `MEDUSAE_GEMINI_MODEL`, `MEDUSAE_MAP_MODEL` |
-| OpenRouter | `OPENROUTER_API_KEY` | `OPENROUTER_MODEL` |
-| NVIDIA | `NVIDIA_API_KEY` | `NVIDIA_MODEL` |
-| Direct Ollama Cloud | `OLLAMA_API_KEY` | Select `ollama-cloud` and a model |
-| Compatible endpoint | `MEDUSAE_COMPATIBLE_API_KEY` | `MEDUSAE_COMPATIBLE_BASE_URL`, `MEDUSAE_COMPATIBLE_MODEL` |
-
-A saved Settings default takes precedence over automatic model selection. `/model <provider> <model-id>` changes the current terminal route temporarily. `/models` lists configured routes; Tab or Right Arrow accepts a command suggestion.
-
-## Terminal controls
-
-| Action | Control |
+| Layer | Technology |
 | --- | --- |
-| Navigate menus | Up/Down or j/k; Enter selects |
-| Recall prompts | Up/Down in chat |
-| Move input cursor | Left/Right |
-| Scroll transcript | Mouse wheel, Page Up/Down, Shift+Up/Down, Ctrl+Up/Down |
-| Oldest/newest output | Ctrl+Home / Ctrl+End |
-| Show complete typing answer | Enter |
-| Open/rebuild map | `/map` / `/map rebuild` |
-| Cancel or go back | Escape |
-| Quit | Ctrl+C |
+| Terminal & local services | Node.js, SQLite |
+| Browser workspace | Next.js, React |
+| Architecture canvas | React Flow |
+| 3D knowledge graph | Three.js, 3D Force Graph |
+| Assistant integration | Model Context Protocol SDK |
 
-Use a terminal at least 52 columns by 20 rows. `NO_COLOR=1` disables colour; `MEDUSAE_REDUCED_MOTION=1` disables home-screen animation. Prompt recall expires after 24 hours by default (`MEDUSAE_PROMPT_HISTORY_TTL_MS`); saved chat messages remain until deleted.
+## Project status
 
-## CLI and MCP
+**v0.1.0 · Early preview.** The core terminal, browser explorer, provider adapters, and MCP research tool are available. This is an evolving personal project, with room for better indexing, model reliability, and interaction polish.
 
-```sh
-node src/cli.mjs doctor
-node src/cli.mjs models
-node src/cli.mjs open https://github.com/expressjs/cors
-node src/cli.mjs ask https://github.com/expressjs/cors "How are preflight requests handled?" --json
-npm run preview
-npm run mcp
-```
+- Large repositories are sampled within indexing limits; a map is not a complete runtime call graph.
+- General explanations use model knowledge. Repository claims use source references, but citation validation does not guarantee every conclusion is correct.
+- Cloud providers receive selected excerpts and relevant conversation context. A genuinely local Ollama model keeps inference local.
+- The preview server is intended for your machine, not public hosting.
 
-Example stdio MCP configuration; replace the path with your checkout's absolute path:
-
-```json
-{
-  "mcpServers": {
-    "medusae": {
-      "command": "node",
-      "args": ["/absolute/path/to/Medusae/src/mcp.mjs"]
-    }
-  }
-}
-```
-
-`research_repo` accepts `repository`, `question`, and optional `sessionId`/`snapshotId`. It returns the answer summary, commit, citations, limitations, cache status, and model name. It may fetch repository source, write a local cache, and invoke your configured model. The TUI does not need to be running. Graph export and agent handoff are not currently exposed as MCP tools.
-
-## Data and limitations
-
-- A shallow bare clone is reused per repository. Chats, snapshots, indexes, reports, and caches live under `.medusae/` by default (`MEDUSAE_DATA_DIR` overrides it).
-- Delete chats from **Continue Chat → Delete**. Shared repository data stays until its last chat is removed. SQLite can retain freed pages for reuse.
-- Only public GitHub repository root URLs are supported. Medusae does not run cloned code, install its dependencies, or follow submodules.
-- Default indexing limits: 2,000 files, 256 KiB per file, and 20 MiB of source. Generated maps use a selected subset of indexed files; large repositories can have incomplete coverage.
-- Cloud providers receive selected repository excerpts and relevant conversation context. Local Ollama inference avoids sending that prompt to a cloud provider when a genuinely local model is selected.
-- Map relationships can be inferred. Unresolved model source references cannot be opened. Answers can still be incomplete or mistaken despite citation validation.
-- Rebuild refreshes the shared map data used by both visual views. A failed rebuild retains the previous report.
-- This is a local tool, not a hardened multi-user web service. Do not expose its preview server publicly.
+[Storage, privacy, and limitations →](docs/USAGE.md#data-and-limitations)
 
 ## Development
 
@@ -133,10 +136,14 @@ npm test
 npm run build
 ```
 
-The automated suite covers indexing, persistence, provider routing/retries, citations, general concept answers, credential encryption/deletion, and chat cleanup. Live-provider tests are opt-in. Browser interactions and terminal behavior need manual checks; a successful build is not a full UI test.
+GitHub Actions runs a clean dependency install, automated tests, and a production build. Live-provider tests are opt-in; browser and terminal interactions also need manual testing.
 
-Built with Node.js, SQLite, Next.js, React Flow, Three.js/3D Force Graph, and the MCP SDK.
+Found a rough edge? [Open an issue](https://github.com/eye9444/Medusae/issues) with the repository, selected model, reproduction steps, and a redacted error message.
 
 ## License
 
 No license has been selected for this initial release. Public visibility does not grant permission to reuse or redistribute the source beyond rights provided by GitHub's terms. Dependency licenses remain their respective authors' licenses.
+
+---
+
+<div align="center"><sub>Built by <a href="https://github.com/eye9444">eye9444</a> · Follow the threads.</sub></div>
